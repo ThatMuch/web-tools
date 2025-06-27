@@ -1,5 +1,5 @@
+import { Link } from "react-router-dom";
 import React from "react";
-
 type Props = {
   label?: string;
   onClick?: () => void;
@@ -11,6 +11,7 @@ type Props = {
   target?: "_blank" | "_self";
   rel?: string;
   [key: string]: any;
+  isLink?: boolean;
 };
 
 export default function Button({
@@ -28,11 +29,11 @@ export default function Button({
   return (
     <>
       {type === "link" && (
-        <a
+        <Link
           onClick={onClick}
           className={`btn ${className}`}
           aria-label={label}
-          href={url}
+          to={url!!}
           target={target}
           rel={rel}
           role="button"
@@ -40,7 +41,7 @@ export default function Button({
         >
           <div className="btn__content"> {children}</div>
           <div className="btn__overlay"></div>
-        </a>
+        </Link>
       )}
       {type === "submit" && (
         <button

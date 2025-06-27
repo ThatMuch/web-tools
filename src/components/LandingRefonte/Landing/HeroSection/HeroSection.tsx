@@ -5,6 +5,7 @@ import * as React from "react";
 import Button from "../../../UI/Button/Button";
 import { FaArrowRight } from "react-icons/fa6";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { Link } from "react-router-dom";
 import logo from "../../../../assets/images/THATMUCH_Logo_White.webp";
 
 export interface IHeroSectionProps {
@@ -25,14 +26,14 @@ export const HeroSection: React.FC<IHeroSectionProps> = ({
   return (
     <>
       <header className="landing-header">
-        <a
-          href="/"
+        <Link
+          to="/"
           className="landing-header__logo"
           aria-label="Accueil"
           title="Accueil du site THATMUCH"
         >
           <LazyLoadImage src={logo} alt="THATMUCH" />
-        </a>
+        </Link>
       </header>
       {!isLanding && <h1 className="hero-title">{title}</h1>}
       {isLanding && (
@@ -41,10 +42,9 @@ export const HeroSection: React.FC<IHeroSectionProps> = ({
             <h1 className="hero-title">{title}</h1>
             <p className="hero-desc">{desc}</p>
             <Button
-              label={label}
+              url={url || "/analyse-refonte-site-web/refonte-form"}
               className="btn btn-dev btn-animate"
               type="link"
-              url={url}
             >
               {label}
               <FaArrowRight className="btn-icon" />
