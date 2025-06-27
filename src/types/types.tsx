@@ -18,3 +18,7 @@ export type ContactFormType = {
   url: string;
   scores: ScoreDataType;
 };
+
+export type FormValuesType = {
+  [key: string]: string | number | boolean;
+};

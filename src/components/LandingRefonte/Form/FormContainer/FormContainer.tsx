@@ -3,10 +3,11 @@ import "./style.scss";
 import * as Yup from "yup";
 
 import { Form, Formik } from "formik";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import Button from "../../../UI/Button/Button";
 import FormQuestion from "./FormQuestion/FormQuestion";
+import type { FormValuesType } from "../../../../types/types";
 import { useScores } from "../../../../contexts/ScoreContext"; // Adjust path as needed
 
 type Props = {
@@ -29,7 +30,7 @@ export default function FormContainer({
     calculateAndSetGlobalScore,
     setAnswersByCategory,
   } = useScores();
-  const [showErrors, setShowErrors] = useState(false);
+  const [showErrors] = useState(false);
   const isLastCategory = currentCategoryIndex === categories.length - 1;
   const currentCategory = categories[currentCategoryIndex];
   const currentCategoryData = data[currentCategoryIndex];
@@ -39,7 +40,7 @@ export default function FormContainer({
   }, [currentCategoryIndex]);
 
   // Helper function to calculate score for the current category based on form values
-  const calculateCurrentCategoryScore = (formValues: any) => {
+  const calculateCurrentCategoryScore = (formValues: FormValuesType) => {
     const currentQuestions = currentCategoryData?.questions;
     if (!currentQuestions || !formValues) return 0;
 
@@ -144,7 +145,7 @@ export default function FormContainer({
         onSubmit={handleSubmit}
         //enableReinitialize={true}
       >
-        {({ errors, touched, values, dirty }) => (
+        {({ errors, touched, values }) => (
           <Form role="form" aria-labelledby="quiz-title">
             {currentCategoryData?.questions?.map((question) => (
               <FormQuestion
