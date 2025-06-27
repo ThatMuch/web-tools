@@ -9,8 +9,8 @@ import logo from "../../../../assets/images/THATMUCH_Logo_White.webp";
 
 export interface IHeroSectionProps {
   title: string;
-  desc: string;
-  url: string;
+  desc?: string;
+  url?: string;
   label?: string;
   isLanding?: boolean;
 }

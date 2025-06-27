@@ -2,6 +2,7 @@ import "./ContactForm.scss";
 
 import * as Yup from "yup";
 
+import type { ContactFormType, ScoreDataType } from "../../../types/types";
 import { ErrorMessage, Field, Form, Formik } from "formik"; // Added Field
 
 import Button from "../../UI/Button/Button";
@@ -65,9 +66,10 @@ export default function ContactForm() {
                   email: values.email,
                   url: values.url,
                 };
-                const submissionData = {
+
+                const submissionData: ContactFormType = {
                   ...cleanValues,
-                  scores: scores, // Include scores from context
+                  scores: scores as ScoreDataType, // Ensure scores is a plain object
                 };
                 sendContact(submissionData)
                   .then(() => {

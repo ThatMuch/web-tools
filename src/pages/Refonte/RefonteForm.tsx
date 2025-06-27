@@ -1,36 +1,36 @@
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
 import ClickSpark from "../../components/ClickSpark/ClickSpark";
 import ContactForm from "../../components/LandingRefonte/ContactForm/ContactForm";
-import  FormContainer  from '../../components/LandingRefonte/Form/FormContainer/FormContainer';
-import FormStepper from '../../components/LandingRefonte/Form/FormStepper/FormStepper';
-import {HeroSection} from '../../components/LandingRefonte/Landing/HeroSection/HeroSection';
-import { ScoreProvider } from '../../contexts/ScoreContext';
+import FormContainer from "../../components/LandingRefonte/Form/FormContainer/FormContainer";
+import FormStepper from "../../components/LandingRefonte/Form/FormStepper/FormStepper";
+import { HeroSection } from "../../components/LandingRefonte/Landing/HeroSection/HeroSection";
+import { ScoreProvider } from "../../contexts/ScoreContext";
 import Seo from "../../components/Seo";
 import data from "../../data/questionquiz.json";
 
 const RefonteForm = () => {
-	const [currentCategoryIndex,setCurrentCategoryIndex] = useState(0);
-	const [isFinished, setIsFinished] = useState(false);
-	  const categories = useMemo(() => {
-		// Récupération des catégories à partir des questions
-		const uniqueCategories = new Set(data.map((q) => q));
-		return Array.from(uniqueCategories).map((item) => ({
-		  name: item.category,
-		  slug: item.slug,
-		}));
-	  },[]);
-	  const categoriesForProvider = categories.map((cat) => ({
-      slug: cat.slug,
+  const [currentCategoryIndex, setCurrentCategoryIndex] = useState(0);
+  const [isFinished, setIsFinished] = useState(false);
+  const categories = useMemo(() => {
+    // Récupération des catégories à partir des questions
+    const uniqueCategories = new Set(data.map((q) => q));
+    return Array.from(uniqueCategories).map((item) => ({
+      name: item.category,
+      slug: item.slug,
     }));
+  }, []);
+  const categoriesForProvider = categories.map((cat) => ({
+    slug: cat.slug,
+  }));
 
-	return (
-		<ScoreProvider initialCategories={categoriesForProvider}>
-			<Seo
-			title="Test de la refonte de site web"
-			description="Faites le test et découvrez si c'est le bon moment pour refaire votre site internet."
-			pathname="/analyse-refonte-site-web/refonte-form"
-			/>
+  return (
+    <ScoreProvider initialCategories={categoriesForProvider}>
+      <Seo
+        title="Test de la refonte de site web"
+        description="Faites le test et découvrez si c'est le bon moment pour refaire votre site internet."
+        pathname="/analyse-refonte-site-web/refonte-form"
+      />
       <ClickSpark
         sparkColor="#fff"
         sparkSize={10}
