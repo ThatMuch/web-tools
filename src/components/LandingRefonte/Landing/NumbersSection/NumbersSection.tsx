@@ -4,12 +4,9 @@ import {
   FaArrowTrendUp,
   FaCalendar,
   FaGlobe,
-  FaGoogle,
   FaHourglass,
   FaMobile,
 } from "react-icons/fa6";
-
-import React from "react";
 
 type Props = {};
 
