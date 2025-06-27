@@ -1,7 +1,7 @@
 import "normalize.css";
 import "./assets/style/style.scss";
 
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 import Home from "./pages/Home";
 import RefonteForm from "./pages/Refonte/RefonteForm";
@@ -10,7 +10,7 @@ import RefonteLanding from "./pages/Refonte/RefonteLanding";
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <Router>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
@@ -22,7 +22,7 @@ function App() {
             element={<RefonteForm />}
           />
         </Routes>
-      </BrowserRouter>
+      </Router>
     </>
   );
 }
