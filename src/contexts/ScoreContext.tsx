@@ -1,10 +1,5 @@
-import React, {
-  ReactNode,
-  createContext,
-  useCallback,
-  useContext,
-  useState,
-} from "react";
+import type { ReactNode } from "react";
+import { createContext, useCallback, useContext, useState } from "react";
 
 // Define the shape of scores for each category
 export interface CategoryScores {

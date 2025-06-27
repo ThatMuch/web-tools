@@ -3,7 +3,6 @@ import "./style.scss";
 import Button from "../../../UI/Button/Button";
 import { FaArrowRight } from "react-icons/fa6";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import React from "react";
 import img from "./tardisStars.webp";
 
 type Props = {};

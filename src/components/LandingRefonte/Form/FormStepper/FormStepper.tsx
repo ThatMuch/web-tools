@@ -5,7 +5,6 @@ import { MdAdsClick, MdDesignServices, MdSearch } from "react-icons/md";
 import { CgIfDesign } from "react-icons/cg";
 import { FaScaleBalanced } from "react-icons/fa6";
 import { IoStatsChart } from "react-icons/io5";
-import React from "react";
 import { SiTmux } from "react-icons/si";
 import { TiSpanner } from "react-icons/ti";
 
@@ -38,8 +37,9 @@ export default function FormStepper({
       {formattedCategories.map((category, index) => (
         <div
           key={category.slug}
-          className={`FormStepper__step ${currentCategoryIndex === index ? "active" : ""
-            } ${currentCategoryIndex > index ? "completed" : ""}`}
+          className={`FormStepper__step ${
+            currentCategoryIndex === index ? "active" : ""
+          } ${currentCategoryIndex > index ? "completed" : ""}`}
           aria-label={`Étape ${index + 1} : ${category.name}`}
           role="button"
           tabIndex={0}
