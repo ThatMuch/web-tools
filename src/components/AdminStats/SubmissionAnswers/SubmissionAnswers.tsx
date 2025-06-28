@@ -1,8 +1,5 @@
 import "./style.scss";
 
-import React, { useState } from "react";
-
-import Legend from "../Legend/Legend";
 import { categories } from "../utils/categoryIcons";
 
 const SubmissionAnswers = ({

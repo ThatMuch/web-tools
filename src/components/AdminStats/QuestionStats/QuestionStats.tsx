@@ -1,8 +1,7 @@
 import "./style.scss";
 
-import React, { useState } from "react";
-
 import CamembertChart from "../CamembertChart/CamembertChart";
+import { useState } from "react";
 
 // Interface pour TypeScript
 interface SelectedAnswer {
