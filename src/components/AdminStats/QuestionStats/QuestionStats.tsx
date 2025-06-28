@@ -86,7 +86,7 @@ const QuestionStats = ({ category, submissions, onClick }) => {
               <h4>{question.question}</h4>
               <CamembertChart
                 data={chartData}
-                onSectionClick={(data) =>
+                onSectionClick={(data: any) =>
                   handleSectionClick(question.id, data.score, data.name)
                 }
               />
