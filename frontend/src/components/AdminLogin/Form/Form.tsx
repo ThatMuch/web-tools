@@ -2,16 +2,7 @@ import "./style.scss";
 
 import Button from "../../UI/Button/Button";
 
-const Form = ({
-  pseudo,
-  setPseudo,
-  pass,
-  setPass,
-  onSubmit,
-  loading,
-
-  error,
-}) => {
+const Form = ({ email, setEmail, pass, setPass, onSubmit, loading, error }) => {
   return (
     <div>
       <div className="form-group">
@@ -19,8 +10,8 @@ const Form = ({
           className="form-control"
           type="text"
           placeholder="Pseudo"
-          value={pseudo}
-          onChange={(e) => setPseudo(e.target.value)}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           disabled={loading}
         />
       </div>
@@ -34,12 +25,16 @@ const Form = ({
           disabled={loading}
         />
       </div>
-
-      {error && <p className="error-message">{error}</p>}
+      {error && (
+        <div className="form-group">
+          <div className="alert alert-danger" role="alert">
+            {error}
+          </div>
+        </div>
+      )}
       <Button
         onClick={onSubmit}
         disabled={loading}
-        label={loading ? "Connexion..." : "Connexion"}
         className="btn-dev"
         type="button"
       >

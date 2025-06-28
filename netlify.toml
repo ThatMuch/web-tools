@@ -1,0 +1,34 @@
+# Configuration de build globale
+[build]
+  # Commande pour construire le frontend
+  command = "yarn build --workspace=frontend"
+  # Dossier contenant les fichiers statiques du frontend après le build
+  publish = "frontend/dist"
+  # Dossier où se trouvent nos fonctions serverless
+  functions = "functions"
+
+# Configuration pour les fonctions
+[functions]
+  external_node_modules = ["firebase-admin", "dotenv"]
+  node_bundler = "esbuild"
+
+# Configuration pour le serveur de développement local
+[dev]
+  # Port pour le serveur de développement
+  port = 8000
+  # Dossier contenant les fonctions serverless pour le développement
+  functions = "functions"
+  # Dossier contenant les fichiers statiques du frontend pour le développement
+  publish = "frontend/dist"
+
+# Redirige les appels API vers notre fonction serverless
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+
+# Règle de fallback pour les applications Single Page (SPA) comme React
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

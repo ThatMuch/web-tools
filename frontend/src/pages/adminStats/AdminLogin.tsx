@@ -5,25 +5,24 @@ import { useAuthStore } from "../../stores/authStore";
 import { useState } from "react";
 
 const AdminLogin = () => {
-  const [pseudo, setPseudo] = useState("");
+  const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
-  const [error] = useState("");
 
-  const { isAuthenticated, login, loading } = useAuthStore();
+  const { isAuthenticated, login, loading, error } = useAuthStore();
 
   const handleLogin = async () => {
-    login(pseudo, pass);
+    await login(email, pass);
   };
   if (isAuthenticated) {
-    return <Navigate to="/adminStats" />;
+    return <Navigate to="/adminStats" replace />;
   }
   return (
     <div className="bg-form">
       <div className="container-fluid position-relative">
         <Title />
         <Form
-          pseudo={pseudo}
-          setPseudo={setPseudo}
+          email={email}
+          setEmail={setEmail}
           pass={pass}
           setPass={setPass}
           onSubmit={handleLogin}
