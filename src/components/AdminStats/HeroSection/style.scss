@@ -1,6 +1,15 @@
+@use "../../../assets/style/vars" as *;
 .stat-hero-section {
   width: 100%;
   margin-bottom: 2.5rem;
+  &-header {
+    padding: 1rem;
+    border-bottom: 1px solid $neutral-200;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
   .section-button {
     grid-column: 1;
     grid-row: 3;

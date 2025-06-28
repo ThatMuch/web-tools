@@ -9,7 +9,7 @@ const Form = ({
   setPass,
   onSubmit,
   loading,
-  isFetching,
+
   error,
 }) => {
   return (
@@ -38,7 +38,7 @@ const Form = ({
       {error && <p className="error-message">{error}</p>}
       <Button
         onClick={onSubmit}
-        disabled={loading || isFetching}
+        disabled={loading}
         label={loading ? "Connexion..." : "Connexion"}
         className="btn-dev"
         type="button"

@@ -6,12 +6,12 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import AdminLogin from "./pages/adminStats/AdminLogin";
 import AdminStats from "./pages/adminStats/AdminStats";
 import Home from "./pages/Home";
+import PrivateLayout from "./Layout/PrivateLayout";
 import RefonteForm from "./pages/Refonte/RefonteForm";
 import RefonteLanding from "./pages/Refonte/RefonteLanding";
-import { useState } from "react";
 
 function App() {
-  const [setIsAuthenticated] = useState(true);
+  // Authentication state is now managed by Zustand store
   return (
     <>
       <Router>
@@ -25,13 +25,11 @@ function App() {
             path="/analyse-refonte-site-web/refonte-form"
             element={<RefonteForm />}
           />
-          <Route path="/adminStats" element={<AdminStats />} />
-          <Route
-            path="/adminLogin"
-            element={
-              <AdminLogin onLoginSuccess={() => setIsAuthenticated(true)} />
-            }
-          />
+          <Route path="/adminLogin" element={<AdminLogin />} />
+          {/* Protected Routes */}
+          <Route element={<PrivateLayout />}>
+            <Route path="/adminStats" element={<AdminStats />} />
+          </Route>
         </Routes>
       </Router>
     </>

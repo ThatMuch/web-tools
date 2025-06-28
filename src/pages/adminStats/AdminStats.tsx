@@ -44,15 +44,14 @@ const AdminStats = () => {
 
   return (
     <div className="AdminStats">
+      <HeroSection
+        isGlobalStat={isGlobalStat}
+        onToggle={setGlobalStat}
+        responseCount={totalSubmissions}
+        responseThisMonth={numberThisMonth}
+        average={averageGlobalScore.toFixed(0)}
+      />
       <div className="container">
-        <HeroSection
-          isGlobalStat={isGlobalStat}
-          onToggle={setGlobalStat}
-          responseCount={totalSubmissions}
-          responseThisMonth={numberThisMonth}
-          average={averageGlobalScore.toFixed(0)}
-        />
-
         {/* Vue globale */}
         {isGlobalStat && (
           <div className=" d-flex gap-2 w-100 flex-row align-items-start">
