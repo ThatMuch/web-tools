@@ -1,0 +1,18 @@
+@use "sass:map";
+@use "./mixins" as *;
+@use "./vars" as *;
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding-right:  .75rem;
+    padding-left:  .75rem;
+  @include breakpoint(tablet) {
+    max-width: map-get($container-max-widths, sm);
+  }
+  @include breakpoint(laptop) {
+    max-width: map-get($container-max-widths, md);
+  }
+  @include breakpoint(desktop) {
+    max-width: map-get($container-max-widths, lg);
+  }
+}

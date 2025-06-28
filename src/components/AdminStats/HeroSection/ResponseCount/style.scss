@@ -1,0 +1,16 @@
+@use "../../../../assets/style/vars" as *;
+.ResponseCount {
+  padding: $spacing-s $spacing-m;
+  background-color: $neutral-50;
+  border-radius: $radius-m;
+  flex: 1;
+  &__count {
+    font-size: 4rem;
+    font-weight: 600;
+    color: $neutral-500;
+    margin-bottom: 5px;
+  }
+  &__label {
+    color: $neutral-600;
+  }
+}
