@@ -15,7 +15,13 @@ type AuthState = {
 	error?: string | null;
 	checkSession: () => void | Promise<void>;
 };
-
+// add the environment variables for the backend URL
+// and frontend URL to the .env.development file
+// and use them in the fetch requests
+const url = import.meta.env.VITE_BACKEND_URL;
+if (!url) {
+	throw new Error("VITE_BACKEND_URL is not defined in .env.development");
+}
 export const useAuthStore = create<AuthState>()(
 
 	(set) => ({
@@ -24,7 +30,7 @@ export const useAuthStore = create<AuthState>()(
 			try {
 				const userCredential = await signInWithEmailAndPassword(auth, email, password);
 				const idToken = await userCredential.user.getIdToken();
-				const sessionResponse = await fetch("http://localhost:8000/api/session-login", {
+				const sessionResponse = await fetch(`${url}/api/session-login`, {
 					method: "POST",
 					headers: { "Content-Type": "application/json" },
 					body: JSON.stringify({ token: idToken }),
@@ -46,13 +52,13 @@ export const useAuthStore = create<AuthState>()(
 		logout: async () => {
 
 			await signOut(auth); // Déconnexion côté Firebase client
-			await fetch("http://localhost:8000/api/logout", { method: "POST" });
+			await fetch(`${url}/api/logout`, { method: "POST" });
 			set({ isAuthenticated: false, error: null });
 		},
 		checkSession: async () => {
 			set({ loading: true });
 			try {
-				const response = await fetch("http://localhost:8000/api/session");
+				const response = await fetch(`${url}/api/session`);
 				const data = await response.json();
 				set({ isAuthenticated: data.isAuthenticated, loading: false });
 			} catch (error) {

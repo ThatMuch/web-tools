@@ -15,7 +15,7 @@
 # Configuration pour le serveur de développement local
 [dev]
   # Port pour le serveur de développement
-  port = 8000
+  port = 8888
   # Dossier contenant les fonctions serverless pour le développement
   functions = "functions"
   # Dossier contenant les fichiers statiques du frontend pour le développement
