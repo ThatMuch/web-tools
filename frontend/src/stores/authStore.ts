@@ -2,14 +2,13 @@ import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 import { auth } from '../utils/firebase/firebase'
 import { create } from "zustand";
-import type firebase from "firebase/compat/app";
 
 type AuthState = {
 	isAuthenticated: boolean;
 	login: (email: string, password: string) => void;
 	logout: () => void;
 	isInitialized: boolean;
-	user?: firebase.User | null;
+	user?: any | null;
 	setInitialized: () => void;
 	loading: boolean;
 	setLoading: (loading: boolean) => void;
@@ -35,7 +34,7 @@ export const useAuthStore = create<AuthState>()(
 					throw new Error("La création de la session a échoué.");
 				}
 
-				set({ isAuthenticated: true, loading: false });
+				set({ isAuthenticated: true, loading: false, user: { email: userCredential.user.email }, error: null });
 			} catch (error) {
 				const errorMessage =
 					error.code === "auth/invalid-credential"

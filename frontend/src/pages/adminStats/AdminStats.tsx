@@ -10,6 +10,7 @@ import SubmissionAnswers from "../../components/AdminStats/SubmissionAnswers/Sub
 import SubmissionListTable from "../../components/AdminStats/SubmissionListTable/SubmissionListTable";
 import type { SubmissionTableType } from "../../types/types";
 import questionsData from "../../data/questionquiz.json";
+import { useAuthStore } from "../../stores/authStore";
 import { useFetchFirebase } from "../../hooks/use-firebase";
 import { useState } from "react";
 
@@ -17,6 +18,8 @@ import { useState } from "react";
  * Composant principal d'administration des statistiques du quiz.
  */
 const AdminStats = () => {
+  const { user } = useAuthStore();
+  console.log(user);
   const currentMonth = new Date().getMonth();
   //const currentMonth = 4;
   const [isGlobalStat, setGlobalStat] = useState(false);
