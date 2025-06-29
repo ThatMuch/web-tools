@@ -1,11 +1,11 @@
 # Configuration de build globale
 [build]
-  # Commande pour construire le frontend
-  command = "yarn build --workspace=frontend"
+  # Commande pour construire le workspace 'frontend'
+  command = "yarn workspace frontend build"
   # Dossier contenant les fichiers statiques du frontend après le build
   publish = "frontend/dist"
   # Dossier où se trouvent nos fonctions serverless
-  functions = "functions"
+  functions = "backend/functions"
 
 # Configuration pour les fonctions
 [functions]
@@ -14,12 +14,10 @@
 
 # Configuration pour le serveur de développement local
 [dev]
-  # Port pour le serveur de développement
+  # Port pour le serveur de développement unifié. 8888 est une alternative commune.
   port = 8888
-  # Dossier contenant les fonctions serverless pour le développement
-  functions = "functions"
-  # Dossier contenant les fichiers statiques du frontend pour le développement
-  publish = "frontend/dist"
+  # Netlify Dev détectera automatiquement le serveur Vite du workspace 'frontend'
+  # car nous n'écrasons plus sa configuration avec 'publish'.
 
 # Redirige les appels API vers notre fonction serverless
 [[redirects]]
