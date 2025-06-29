@@ -1,17 +1,17 @@
 import {
   computeCategoryStats,
   computeGlobalScoreStats,
-} from "../../components/AdminStats/utils/quizStatsUtils";
+} from "../../../components/AdminStats/utils/quizStatsUtils";
 
-import CategorySelector from "../../components/AdminStats/CategorySelector/CategorySelector";
-import HeroSection from "../../components/AdminStats/HeroSection/HeroSection";
-import QuestionStats from "../../components/AdminStats/QuestionStats/QuestionStats";
-import SubmissionAnswers from "../../components/AdminStats/SubmissionAnswers/SubmissionAnswers";
-import SubmissionListTable from "../../components/AdminStats/SubmissionListTable/SubmissionListTable";
-import type { SubmissionTableType } from "../../types/types";
-import questionsData from "../../data/questionquiz.json";
-import { useAuthStore } from "../../stores/authStore";
-import { useFetchFirebase } from "../../hooks/use-firebase";
+import CategorySelector from "../../../components/AdminStats/CategorySelector/CategorySelector";
+import HeroSection from "../../../components/AdminStats/HeroSection/HeroSection";
+import QuestionStats from "../../../components/AdminStats/QuestionStats/QuestionStats";
+import SubmissionAnswers from "../../../components/AdminStats/SubmissionAnswers/SubmissionAnswers";
+import SubmissionListTable from "../../../components/AdminStats/SubmissionListTable/SubmissionListTable";
+import type { SubmissionTableType } from "../../../types/types";
+import questionsData from "../../../data/questionquiz.json";
+import { useAuthStore } from "../../../stores/authStore";
+import { useFetchFirebase } from "../../../hooks/use-firebase";
 import { useState } from "react";
 
 /**

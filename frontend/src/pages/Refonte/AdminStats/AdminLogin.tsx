@@ -1,7 +1,7 @@
-import Form from "../../components/AdminLogin/Form/Form";
+import Form from "../../../components/AdminLogin/Form/Form";
 import { Navigate } from "react-router-dom";
-import Title from "../../components/AdminLogin/Title/Title";
-import { useAuthStore } from "../../stores/authStore";
+import Title from "../../../components/AdminLogin/Title/Title";
+import { useAuthStore } from "../../../stores/authStore";
 import { useState } from "react";
 
 const AdminLogin = () => {
