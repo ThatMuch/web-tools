@@ -20,7 +20,7 @@ try {
     );
   }
 
-  console.log("FIREBASE_SERVICE_ACCOUNT_JSON loaded:", !!serviceAccount);
+
     admin.initializeApp({
       credential: admin.credential.cert(serviceAccount),
     });
