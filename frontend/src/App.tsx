@@ -3,8 +3,8 @@ import "./assets/style/style.scss";
 
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
-import AdminLogin from "./pages/AdminStats/AdminLogin";
-import AdminStats from "./pages/AdminStats/AdminStats";
+import AdminLogin from "./pages/Refonte/AdminStats/AdminLogin";
+import AdminStats from "./pages/Refonte/AdminStats/AdminStats";
 import Home from "./pages/Home";
 import PrivateLayout from "./Layout/PrivateLayout";
 import RefonteForm from "./pages/Refonte/RefonteForm";
