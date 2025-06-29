@@ -41,7 +41,7 @@ export const useAuthStore = create<AuthState>()(
 				}
 
 				set({ isAuthenticated: true, loading: false, user: { email: userCredential.user.email }, error: null });
-			} catch (error) {
+			} catch (error: any) {
 				const errorMessage =
 					error.code === "auth/invalid-credential"
 						? "Email ou mot de passe incorrect."
