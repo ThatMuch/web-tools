@@ -23,6 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 .env.*
+/frontend/.env
+/backend/.env
 
 # Local Netlify folder
 .netlify
