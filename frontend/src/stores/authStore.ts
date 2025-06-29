@@ -19,9 +19,7 @@ type AuthState = {
 // and frontend URL to the .env.development file
 // and use them in the fetch requests
 const url = import.meta.env.VITE_BACKEND_URL;
-if (!url) {
-	throw new Error("VITE_BACKEND_URL is not defined in .env.development");
-}
+
 export const useAuthStore = create<AuthState>()(
 
 	(set) => ({
