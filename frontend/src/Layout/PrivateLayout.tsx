@@ -6,7 +6,7 @@ const PrivateLayout = () => {
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
 
   if (!isAuthenticated) {
-    return <Navigate to="/adminLogin" replace />;
+    return <Navigate to="/analyse-refonte-site-web/login" replace />;
   }
 
   return <Outlet />;

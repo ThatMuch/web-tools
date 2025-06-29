@@ -14,7 +14,7 @@ const AdminLogin = () => {
     await login(email, pass);
   };
   if (isAuthenticated) {
-    return <Navigate to="/adminStats" replace />;
+    return <Navigate to="/analyse-refonte-site-web/admin" replace />;
   }
   return (
     <div className="bg-form">

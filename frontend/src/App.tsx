@@ -25,10 +25,16 @@ function App() {
             path="/analyse-refonte-site-web/refonte-form"
             element={<RefonteForm />}
           />
-          <Route path="/adminLogin" element={<AdminLogin />} />
+          <Route
+            path="/analyse-refonte-site-web/login"
+            element={<AdminLogin />}
+          />
           {/* Protected Routes */}
           <Route element={<PrivateLayout />}>
-            <Route path="/adminStats" element={<AdminStats />} />
+            <Route
+              path="/analyse-refonte-site-web/admin"
+              element={<AdminStats />}
+            />
           </Route>
         </Routes>
       </Router>

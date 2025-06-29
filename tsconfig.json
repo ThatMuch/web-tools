@@ -3,5 +3,9 @@
   "references": [
     { "path": "./frontend/tsconfig.app.json" },
     { "path": "./backend/tsconfig.node.json" }
-  ]
+  ],
+  "compilerOptions": {
+    "composite": true,
+    "forceConsistentCasingInFileNames": true
+  }
 }
