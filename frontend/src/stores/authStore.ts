@@ -18,7 +18,7 @@ type AuthState = {
 // add the environment variables for the backend URL
 // and frontend URL to the .env.development file
 // and use them in the fetch requests
-const url = import.meta.env.VITE_BACKEND_URL;
+const url = import.meta.env.VITE_BACKEND_URL || "";
 
 export const useAuthStore = create<AuthState>()(
 
