@@ -15,7 +15,7 @@
 # Configuration pour le serveur de développement local
 [dev]
   # Port pour le serveur de développement unifié. 8888 est une alternative commune.
-  port = 8888
+  port = 8000
   # Netlify Dev détectera automatiquement le serveur Vite du workspace 'frontend'
   # car nous n'écrasons plus sa configuration avec 'publish'.
 
